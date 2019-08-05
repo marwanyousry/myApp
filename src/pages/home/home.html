@@ -1,14 +1,26 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      {{ title }}
     </ion-title>
   </ion-navbar>
 </ion-header>
-
+<!--https://image.shutterstock.com/image-photo/mountains-during-sunset-beautiful-natural-260nw-407021107.jpg-->
 <ion-content padding>
   The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
-</ion-content>
+  <p [innerHtml] = 'content'></p>
+  <img [src]='image_source'>
+  <ion-label>{{ inputValue }}</ion-label>
+  <ion-input [(ngModel)]="inputValue"></ion-input>
+  <p id='parg'>aaaaaaaa</p>
+  <ul>
+    <ion-card   *ngFor='let user of users'>
+      <ion-label>{{user.name}}</ion-label>
+      <ion-label>{{user.age}}</ion-label>
+      <ion-label *ngIf='true'>{{user.email}}</ion-label>
+      
+    </ion-card >
+  </ul>
+
+  <button ion-button (click)= "clickFucntion()">Click  me</button>
+</ion-content> 
