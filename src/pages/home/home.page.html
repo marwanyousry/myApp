@@ -1,5 +1,8 @@
 <ion-header>
   <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
     <ion-title>
       {{ title }}
     </ion-title>
@@ -7,20 +10,31 @@
 </ion-header>
 <!--https://image.shutterstock.com/image-photo/mountains-during-sunset-beautiful-natural-260nw-407021107.jpg-->
 <ion-content padding>
+  <my-componet></my-componet>
   The world is your oyster.
   <p [innerHtml] = 'content'></p>
   <img [src]='image_source'>
-  <ion-label>{{ inputValue }}</ion-label>
+  <ion-label>{{ inputValue | json }}</ion-label>
   <ion-input [(ngModel)]="inputValue"></ion-input>
   <p id='parg'>aaaaaaaa</p>
-  <ul>
+  <!-- <ul>
     <ion-card   *ngFor='let user of users'>
       <ion-label>{{user.name}}</ion-label>
       <ion-label>{{user.age}}</ion-label>
       <ion-label *ngIf='true'>{{user.email}}</ion-label>
       
     </ion-card >
-  </ul>
+  </ul> -->
 
-  <button ion-button (click)= "clickFucntion()">Click  me</button>
+  <!-- <ion-item>
+    <ion-label>Username</ion-label>
+    <ion-input type="text" [formControl]="myForm.controls['username']"></ion-input>
+  </ion-item>
+  <ion-label *ngIf="!myForm.controls['username'].valid && myForm.controls['username'].toucher"> error</ion-label> -->
+
+
+  <button class="myButtonStyle"
+   ion-button block >Login</button>
+
+  <button ion-button block (click)= "callAPI()">API Call</button>
 </ion-content> 
