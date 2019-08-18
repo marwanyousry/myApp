@@ -13,7 +13,10 @@ import { RequestHelperProvider } from '../providers/request-helper/request-helpe
 import { AlertHandlerProvider } from '../providers/alert-handler/alert-handler';
 import { SpinnerProvider } from '../providers/spinner/spinner';
 import { HttpModule } from '@angular/http';
-
+import { IonicStorageModule } from '@ionic/storage';
+import { ServiceRequestProvider } from '../providers/service-request/service-request';
+import { HttpClientModule, HttpClient } from "@angular/common/http";
+import { Helper } from '../helper/helper';
 @NgModule({
   declarations: [
     MyApp,
@@ -22,9 +25,13 @@ import { HttpModule } from '@angular/http';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp,{
+      menuType: 'overlay'
+    }),
     ComponentsModule,
-    HttpModule
+    HttpModule,
+    HttpClientModule, 
+    IonicStorageModule.forRoot(),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -39,7 +46,9 @@ import { HttpModule } from '@angular/http';
     ObserveProvider,
     RequestHelperProvider,
     AlertHandlerProvider,
-    SpinnerProvider
+    SpinnerProvider,
+    ServiceRequestProvider,
+    Helper
   ]
 })
 export class AppModule {}

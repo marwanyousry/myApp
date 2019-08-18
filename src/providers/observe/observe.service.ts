@@ -16,7 +16,7 @@ export class ObserveProvider {
 
   data_stream: Observable<string>;
 
-  sendStream() :Observable<string>{
+  sendStream() :Observable<string>{ 
     this.data_stream = new Observable( observer =>{
       setTimeout(()=>{
         observer.next('date_stream_1');

@@ -1,0 +1,6 @@
+<ion-tabs selectedIndex="1">
+    <ion-tab (ionSelect)="select()" tabTitle="Info" tabIcon="menu"></ion-tab>
+    <ion-tab [root]="infoRoot" tabTitle="Info" tabIcon="information-circle"></ion-tab>
+    <ion-tab [root]="contactRoot" tabTitle="Contact" tabIcon="information-circle"></ion-tab>
+    <ion-tab [root]="profileRoot" tabTitle="Profile" tabIcon="information-circle"></ion-tab>
+</ion-tabs>

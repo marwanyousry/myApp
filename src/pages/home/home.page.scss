@@ -12,7 +12,23 @@ page-home {
   }
 
   .myButtonStyle {
-    color: red;
+    color: red; 
     background-color: black;
+  }
+  // p{
+  //   background-color: red;
+  // }
+
+  div.myDiv > p {
+    background-color: yellow !important;
+  }
+
+  .active{
+    background-color: red;
+    font-size: 20px;
+  }
+  .inactive{
+    background-color: white;
+    font-size: 12px;
   }
 }
