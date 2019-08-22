@@ -8,11 +8,13 @@ import { Component } from '@angular/core';
 import { NavController, Events } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AboutPage } from '../about/about';
+import { EncryptionProvider } from '../../providers/encryption/encryption';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.page.html'
 })
 export class HomePage {
+  encryptedValue: string;
   users_results: Result[];
   title: string;
   content: string = 'Ea enim in ipsum nulla ad incididunt aliquip anim Lorem excepteur minim tempor nisi. Laboris Lorem amet sunt ipsum quis fugiat. Veniam ex officia labore quis nisi qui aliquip eu fugiat qui. Anim Lorem est elit enim pariatur sit ullamco aute occaecat enim mollit aliqua adipisicing esse. Irure anim eu laborum enim id consequat esse id consectetur qui ipsum. Reprehenderit minim nulla reprehenderit sunt.'
@@ -32,6 +34,7 @@ export class HomePage {
     private observe: ObserveProvider,
     private formBuilder: FormBuilder,
     private event: Events,
+    private encrypt: EncryptionProvider,
     private spinner: SpinnerProvider,
     private request: RequestHelperProvider) {
     this.event.subscribe('aaaa', (val) => {
@@ -48,6 +51,9 @@ export class HomePage {
     // this.myForm = this.formBuilder.group({
     //   username: ['', Validators.compose([Validators.required, Validators.minLength(10), Validators.pattern()])]
     // })
+
+    console.log("TCL: HomePage -> this.encrypt.encrypt('Pass_1234')", this.encrypt.encrypt('Pass_1234'));
+    this.encryptedValue = this.encrypt.encrypt('Pass_1234');
   }
 
 

@@ -9,7 +9,7 @@ import { HomePage } from '../pages/home/home.page';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = 'TabbarPage';
+  rootPage:any = HomePage;
   count: number = 0;
   constructor(platform: Platform, 
               statusBar: StatusBar, 

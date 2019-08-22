@@ -17,6 +17,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { ServiceRequestProvider } from '../providers/service-request/service-request';
 import { HttpClientModule, HttpClient } from "@angular/common/http";
 import { Helper } from '../helper/helper';
+import { EncryptionProvider } from '../providers/encryption/encryption';
 @NgModule({
   declarations: [
     MyApp,
@@ -48,7 +49,8 @@ import { Helper } from '../helper/helper';
     AlertHandlerProvider,
     SpinnerProvider,
     ServiceRequestProvider,
-    Helper
+    Helper,
+    EncryptionProvider
   ]
 })
 export class AppModule {}
