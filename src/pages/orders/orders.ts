@@ -1,10 +1,10 @@
-import { SpinnerProvider } from './../../providers/spinner/spinner';
-import { RequestHelperProvider, RequestParams, RequestType } from './../../providers/request-helper/request-helper';
+import { RequestType, RequestHelperProvider, RequestParams } from './../../providers/request-helper/request-helper';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { SpinnerProvider } from '../../providers/spinner/spinner';
 
 /**
- * Generated class for the ProfilePage page.
+ * Generated class for the OrdersPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -12,13 +12,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-profile',
-  templateUrl: 'profile.html',
+  selector: 'page-orders',
+  templateUrl: 'orders.html',
 })
-export class ProfilePage {
+export class OrdersPage {
+
   userId: string;
   requestParams: RequestParams[];
-  profile: any = {};
+  orders: any [] = [];
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public request: RequestHelperProvider,
@@ -28,15 +29,15 @@ export class ProfilePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
-    this.getProfile();
+    this.gerOrders();
   }
 
 
-  getProfile(){
+  gerOrders(){
     this.spinner.showSpinner();
-    this.requestParams = [{label: 'customerID', value: this.userId}];
-    this.request.sendRequest(RequestType.GET, 'http://mobile.musa3ed.com/api/Account/GetUserProfileForDraya', this.requestParams).subscribe((res)=>{
-      this.profile = res;
+    this.requestParams = [{label: 'userId', value: this.userId}];
+    this.request.sendRequest(RequestType.GET, 'http://mobile.musa3ed.com/api/GetMyRentContracts', this.requestParams).subscribe((res)=>{
+      this.orders = res;
     },(error)=>{
       this.spinner.hideSpinner();
     },()=>{

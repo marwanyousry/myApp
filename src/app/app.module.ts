@@ -18,6 +18,7 @@ import { ServiceRequestProvider } from '../providers/service-request/service-req
 import { HttpClientModule, HttpClient } from "@angular/common/http";
 import { Helper } from '../helper/helper';
 import { EncryptionProvider } from '../providers/encryption/encryption';
+import { ValidationRules } from '../helper/ValidationRules';
 @NgModule({
   declarations: [
     MyApp,
@@ -48,6 +49,7 @@ import { EncryptionProvider } from '../providers/encryption/encryption';
     RequestHelperProvider,
     AlertHandlerProvider,
     SpinnerProvider,
+    ValidationRules,
     ServiceRequestProvider,
     Helper,
     EncryptionProvider

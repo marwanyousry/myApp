@@ -1,82 +1,35 @@
 <ion-header>
   <ion-navbar>
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>
-      {{ title }}
+      Login
     </ion-title>
   </ion-navbar>
 </ion-header>
-<!--https://image.shutterstock.com/image-photo/mountains-during-sunset-beautiful-natural-260nw-407021107.jpg-->
+
 <ion-content padding>
-  <ion-label>{{encryptedValue}}</ion-label>
-  <!-- <my-componet></my-componet>
-  The world is your oyster.
-  <p [innerHtml] = 'content'></p>
-  <img [src]='image_source'>
-  <ion-label>{{ inputValue | json }}</ion-label>
-  <ion-input [(ngModel)]="inputValue"></ion-input>
-  <p id='parg'>aaaaaaaa</p> -->
-  <!-- <ul>
-    <ion-card   *ngFor='let user of users'>
-      <ion-label>{{user.name}}</ion-label>
-      <ion-label>{{user.age}}</ion-label>
-      <ion-label *ngIf='true'>{{user.email}}</ion-label>
-      
-    </ion-card >
-  </ul> -->
-
-  <!-- <ion-item>
-    <ion-label>Username</ion-label>
-    <ion-input type="text" [formControl]="myForm.controls['username']"></ion-input>
-  </ion-item>
-  <ion-label *ngIf="!myForm.controls['username'].valid && myForm.controls['username'].toucher"> error</ion-label> -->
-  <!-- <ion-input type="text" [formControl]="myForm.controls['username']" ></ion-input>
+  <ion-label></ion-label>
   <ion-list>
-  <ion-item *ngFor="let user of users"  (click)="select(user)">
-    <h2 [ngClass]="user.active ? 'active' : 'inactive'">{{user.name}}</h2>
-  </ion-item>
-</ion-list>
 
-
-  <button ion-button block (click)= "callAPI()">API Call</button> -->
-
-  <!-- <ion-list>
-    <ion-item *ngFor="let user of users_results">
-      <ion-avatar item-start>
-        <img [src]="user.picture.medium">
-      </ion-avatar>
-      <h2>{{user.name.title}} {{user.name.first}} {{user.name.last}}</h2>
-      <p>{{user.email}}</p>
+    <ion-item>
+      <ion-label floating>Mobile Number</ion-label>
+      <ion-input [(ngModel)]="username" type="tel" [formControl]="loginForm.controls['username']"></ion-input>
     </ion-item>
+    <ion-label *ngIf="!loginForm.controls['username'].valid  &&  loginForm.controls['username'].touched">
+      Email is required
+    </ion-label>
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input [(ngModel)]="password" type="password" [formControl]="loginForm.controls['password']"></ion-input>
+    </ion-item>
+    <ion-label *ngIf="!loginForm.controls['password'].valid  &&  loginForm.controls['password'].touched">
+      password is required 
+    </ion-label>
+    
+
   </ion-list>
-  <button ion-button [navPush]="aboutPage">About Page</button>
-  <button ion-button block (click)="publish()">Publish</button> -->
-  <!-- <my-componet *ngFor="let user of users_results"></my-componet> -->
-  <ion-input type="text" #username></ion-input>
-  <ion-input type="password" #password></ion-input>
-  <button ion-button block (click)="Login(username.value, password.value)">Login</button> 
-  <button ion-button block (click)="callAPI()">callAPI</button> 
-  <!-- <ion-list>
-    <ion-item *ngFor="let user of users_results">
-      <ion-avatar item-start>
-        <img [src]="user.picture.medium">
-      </ion-avatar>
-      <h2>{{ user.name.title}} {{ user.name.first}} {{ user.name.last}}</h2>
-      <p>{{ user.email}}</p>
-    </ion-item>
-  </ion-list> -->
 
-  <ion-grid no-padding>
-    <ion-row no-padding>
-      <ion-col no-padding text-center col-4 *ngFor="let user of users_results">{{user.name.first}}</ion-col>
-    </ion-row>
-  </ion-grid>
-
-  <ion-list>
-    <ion-item *ngFor="let user of users" (click)="select(user)">
-      <ion-label [ngClass]="user.active ? 'active':'inactive'">{{user.name}}</ion-label>
-    </ion-item>
-  </ion-list>
-</ion-content> 
+  <button [disabled]="!loginForm.valid" ion-button block (click)="Login()"> Login </button>
+</ion-content>

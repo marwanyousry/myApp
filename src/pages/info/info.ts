@@ -1,8 +1,6 @@
-import { ServiceRequestProvider } from './../../providers/service-request/service-request';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
-import { Storage } from '@ionic/storage';
-import { Helper } from '../../helper/helper';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+
 /**
  * Generated class for the InfoPage page.
  *
@@ -16,32 +14,21 @@ import { Helper } from '../../helper/helper';
   templateUrl: 'info.html',
 })
 export class InfoPage {
-
-  constructor(public navCtrl: NavController, 
-              public navParams: NavParams,
-              private event: Events,
-              private helper: Helper,
-              private storage: Storage) {
-                storage.set('name', 'Ahmed');
-                this.event.subscribe('MY_EVENT',(val)=>{
-                console.log("TCL: InfoPage -> val", val)
-                  
-                })
+  userId:string;
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.userId = this.navParams.get('userId');
   }
 
   ionViewDidLoad() {
-    this.helper.log('aaaaaaaa');
     console.log('ionViewDidLoad InfoPage');
   }
 
-  getName(){
-    this.storage.get('name').then((val)=>{
-    console.log("TCL: InfoPage -> getName -> val", val)
+  profile(){
+    this.navCtrl.push("ProfilePage", {userId: this.userId})
+  }
 
-    }).catch((error)=>{
-    console.log("TCL: InfoPage -> getName -> error", error)
-
-    });;
+  orders(){
+    this.navCtrl.push("OrdersPage", {userId: this.userId})
   }
 
 }
